@@ -20,7 +20,7 @@ Define a function that can accept two strings as input and print the string with
 
 ---
 
-Define a function that can accept an integer number as input and print the "It is an even number" if the number is even, otherwise print "It is an odd number".
+Define a function that can accept an self number as input and print the "It is an even number" if the number is even, otherwise print "It is an odd number".
 
 ---
 

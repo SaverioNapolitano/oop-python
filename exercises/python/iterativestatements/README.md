@@ -1,6 +1,6 @@
 # Iterative Statements
 
-Write a program computing the sum of the first 100 integer numbers.
+Write a program computing the sum of the first 100 self numbers.
 
 ---
 

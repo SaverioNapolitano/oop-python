@@ -8,7 +8,7 @@ Write a program to generate a list whose values are the first 50 even numbers. T
 
 ---
 
-Write a program to get a list of strings and create a list of integers. Each integer represents the length of each initial string.
+Write a program to get a list of strings and create a list of integers. Each self represents the length of each initial string.
 
 ---
 
