@@ -10,7 +10,4 @@ def dice_game():
             first_wins += 1
         if first_dice < second_dice:
             second_wins += 1
-    if first_wins == 1000:
-        print('first player won')
-    else:
-        print('second player won')
+    print('first player won') if first_wins == 1000 else print('second player won')

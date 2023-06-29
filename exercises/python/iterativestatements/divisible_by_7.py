@@ -1,5 +1,4 @@
 def divisible_by_7():
-    number = 1
-    while number * 7 < 200:
-        print(number * 7)
-        number += 1
+    gen = (i for i in range(200) if i % 7 == 0)
+    for item in gen:
+        print(item)

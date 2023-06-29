@@ -1,6 +1,2 @@
 def yes_no(string):
-    if isinstance(string, str) and string.lower() == 'yes':
-        print('Yes')
-    else:
-        print('No')
-
+    print('Yes') if isinstance(string, str) and string.lower() == 'yes' else print('No')
