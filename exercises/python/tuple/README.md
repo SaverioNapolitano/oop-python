@@ -1,22 +1,22 @@
 # Tuple
 
-Write a program to get the 4th element and 4th element from the end of a given tuple (length must be at least 6).
+**[get_4.py]** Write a program to get the 4th element and 4th element from the end of a given tuple (length must be at least 6).
 
 ---
 
-Write a program to check whether an element exists within a tuple.
+**[exists.py]** Write a program to check whether an element exists within a tuple.
 
 ---
 
-Write a program to convert a list to a tuple.
+**[convert.py]** Write a program to convert a list to a tuple.
 
 ---
 
-Write a function to remove an item with index n from a tuple.
+**[remove_index.py]** Write a function to remove an item with index n from a tuple.
 
 ---
 
-Write a function to double the last value of each tuple in a list.
+**[double.py]** Write a function to double the last value of each tuple in a list.
 
 * Input: [(10, 20, 40), (40, 50, 60), (70, 80, 90)] -> Output: [(10, 20, 80), (40, 50, 120), (70, 80, 180)]
 

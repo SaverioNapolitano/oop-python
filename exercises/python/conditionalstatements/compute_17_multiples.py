@@ -1,6 +1,3 @@
 def compute_17_multiples():
-    number = 17
-    total = 1
-    while number * total < 300:
-        print(number*total)
-        total += 1
+    for item in (number for number in range(300) if number % 17 == 0):
+        print(item)

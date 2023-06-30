@@ -28,6 +28,7 @@ Python & C: lowercase names and underscores
 Java: camelcase
 
 Names with __ in Python stand for private methods that shouldn't be modified (it's a convention).
+They will be called from built-in external functions.
 
 ## Variable assignments 
 
@@ -64,9 +65,6 @@ Both Java and Python (and many other languages) have implicit casting.
 
 While in Java the length of an object is returned by a method of that object, Python as a general built-in function that, given a sequence as input, returns its length (internally it calls a method of the sequence passed as input).
 
-
-
-**Python list is the equivalent of Java ArrayList.**
 
 ### Accessing characters
 
@@ -116,10 +114,6 @@ Passing parameters in Python is similar to Java.
 
 They're not present in Java (to obtain the same effect you have to overload methods -> methods with the same name but different parameters).
 
-
-
-
-**Python dictionary is the equivalent of Java hashmap. (couples key-value)**
 
 ## Returning multiple values
 
@@ -177,6 +171,123 @@ Decorators are wrappers that add custom code before or after the execution of th
 In Python, managing file and I/O is easier than Java.
 
 # Python Data Structures
+
+## Iterables
+
+Like Java, Python data structures are based on the concept of iterable.
+
+Iterator protocol in Python is the equivalent of iterable interface in Java.
+
+iter() method called on an iterator returns the iterator itself.
+
+*Every iterator is an iterable, but not every iterable is an iterator.*
+
+Iterator: object that implements __ iter() __ and __ next() __ methods.
+
+Iterable: object that can produce an iterator.
+
+If I try to call the next() method on an iterable I get a TypeError.
+
+Like Java, Python allows the conversion between data structures (for instance, construct a list from a string).
+
+## List
+
+Python list is the equivalent of Java ArrayList.
+
+Unlike Java, Python lists can contain items of different types. 
+
+Lists support slicing, which allows us to have a partial copy of the list.
+
+The cross-way to remove items from iterables is using the del keyword.
+
+We can also use the remove method (if we want to search the item based on its content) or the pop method
+(if we want to search the item based on its index).
+
+## Tuple
+
+Tuples are implemented using C structures (fields are unchangeable).
+
+Tuples distinctive element is ',' (parentheses are used to make the code more readable).
+
+## Set
+
+Python set is the equivalent of Java HashSet.
+
+Operator in applied to sets is extremely fast (especially if compared to lists).
+
+Python update() is the equivalent of Java addAll().
+
+The difference between discard() and remove() methods in Python is also present in Java.
+
+Like Java, one of the main uses of sets in Python is to remove duplicates from lists.
+
+Python module timeit is the equivalent of Java time.
+
+## Dictionary 
+
+Python dictionary is the equivalent of Java hashmap (couples key-value).
+
+The keys() method returns a set (no duplicates), while the values() method returns a list (allows duplicates).
+
+The items() method returns a list of tuples.
+
+Unpacking:
+for can cycle on more than one variable at the same time
+if at the right of in there is an object which is a container for other objects.
+
+## Generators
+
+Generators occupy much less memory compared to iterators,
+due to the fact that generators do not store in memory the values
+but know how to generate the next item when it is requested.
+
+For this reason, if you try to print the content of a generator using the generator itself, it won't work
+(you need to store its data in some data structure, for instance, a list).
+
+## Generator Comprehension 
+
+```(<expression> for <var> in <iterable> [if <condition>])```
+
+1. ```for <var> in <iterables>``` generates the initial values
+2. ```[if <condition>]``` optionally filters the values produced by the for loop
+3. ```<expression>``` is applied the values produced by the for loop and eventually filtered
+
+## Itertools
+
+enumerate() provides a new iterable composed of tuples: each tuple is always composed of two elements,
+the second one is always the original object of the iterable that was enumerated,
+the first one is the index the element had in the original iterable.
+
+zip() allows the programmer to pack different iterables collections into a single one, whose items are tuples.
+
+## Deep copy
+
+Tuples are shared also in deep copies because they are immutable
+(they can be reassigned, but in that case, they are automatically duplicated).
+
+What above applies to every immutable part of data structures.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
