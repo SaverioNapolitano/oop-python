@@ -1,4 +1,4 @@
-def no_dup_rev(items): #TODO enhance using set
+def no_dup_rev(items):
     if isinstance(items, list):
         items.reverse()
     reversed_items = []

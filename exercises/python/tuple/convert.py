@@ -1,2 +1,2 @@
 def convert(items):
-    return list(items)
+    return tuple(items)
