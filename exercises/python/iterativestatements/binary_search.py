@@ -1,4 +1,4 @@
-def binary_search(sorted_list, item): #TODO see teacher solution
+def binary_search(sorted_list, item):
     if isinstance(sorted_list, list):
         start = 0
         end = len(sorted_list) - 1
@@ -11,5 +11,3 @@ def binary_search(sorted_list, item): #TODO see teacher solution
             else:
                 start = index + 1
         return -1
-
-

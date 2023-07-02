@@ -1,4 +1,4 @@
-def remove_duplicates(items): #TODO enhance
+def remove_duplicates(items):
     items_no_dup = []
     for item in items:
         if item not in items_no_dup:
