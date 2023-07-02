@@ -119,9 +119,6 @@ They're not present in Java (to obtain the same effect you have to overload meth
 
 This feature is not available in Java, but only in Python.
 
-
-**Python self is the equivalent of Java this.**
-
 @dataclass allows you to obtain a minimal class to store and to retrieve values writing less than creating a normal class.
 
 ## Lambda functions
@@ -186,7 +183,7 @@ Iterator: object that implements __ iter() __ and __ next() __ methods.
 
 Iterable: object that can produce an iterator.
 
-If I try to call the next() method on an iterable I get a TypeError.
+If I try to call the next() method on iterable, I get a TypeError.
 
 Like Java, Python allows the conversion between data structures (for instance, construct a list from a string).
 
@@ -249,12 +246,12 @@ For this reason, if you try to print the content of a generator using the genera
 ```(<expression> for <var> in <iterable> [if <condition>])```
 
 1. ```for <var> in <iterables>``` generates the initial values
-2. ```[if <condition>]``` optionally filters the values produced by the for loop
-3. ```<expression>``` is applied the values produced by the for loop and eventually filtered
+2. ```[if <condition>]``` optionally filters the values produced by for loop
+3. ```<expression>``` is applied the values produced by for loop and eventually filtered
 
 ## Itertools
 
-enumerate() provides a new iterable composed of tuples: each tuple is always composed of two elements,
+enumerate() provides new iterable composed of tuples: each tuple is always composed of two elements,
 the second one is always the original object of the iterable that was enumerated,
 the first one is the index the element had in the original iterable.
 
@@ -266,6 +263,167 @@ Tuples are shared also in deep copies because they are immutable
 (they can be reassigned, but in that case, they are automatically duplicated).
 
 What above applies to every immutable part of data structures.
+
+# Python Object-Oriented 
+
+Object-oriented programming is independent of the language,
+so all the main concepts seen in Java (encapsulation, inheritance, polymorphism) apply to Python too. 
+
+## Object identity, type, internal state
+
+Python id() has the same effect of printing an object in Java which has not overridden toString() method.
+
+Internal state is the state of the variables (what each object contains).
+
+## Class definition
+
+Python self is the equivalent of Java this.
+
+While in Java this is available through all the class'
+body (you can write it everywhere with it),
+in Python self is not available but needs to be passed to every method of the class (and has to be the first parameter).
+
+Constructor (__ init __) has to be the first method of the class.
+
+Python does not have the new operator when creating an object instance nor requires to specify the type of the variable.
+
+Self is not required when instantiating an object
+(it is automatically passed to the class' methods by Python Virtual Machine).
+
+## Class attributes 
+
+They are defined at the beginning of the class definition and are not preceded by the 'self' keyword. 
+
+Like Java, they are shared among all the instances 
+
+## Class methods
+
+Methods annotated with @classmethod are used to create factories:
+static methods which can create new objects (alternatives to constructor).
+
+## String representations
+
+Python __ repr() __ and __ str() __ are the equivalent of Java toString().
+
+Internally, print() calls __ str() __ and repr() calls __ repr() __.
+
+It's not recommended to differentiate __ repr() __ and __ str() __ unless you know exactly what you are doing.
+
+Usually __ str() __ is a 'pretty printing' function.
+
+Every Python object can access to private attribute __ dict __ which represents the internal state of the object.
+
+It is recommended to always implement __ rep() __.
+
+## Docstring 
+
+Python Docstring is the equivalent of Java Javadoc.
+
+It can be retrieved both from objects (class' instances) and class itself.
+
+Unlike Java, Python does not have publicity indicators: everything is public. 
+
+Private attributes can just be denoted using a convention
+
+## Encapsulation 
+
+Due to the fact that using getter and setter is discouraged in Python, you should use properties.
+
+The idea is to have attributes initialized in a standard way within the constructor (without using the _ notation),
+and pair with them annotated methods.
+
+Annotated methods have the same name as the attribute they are paired with:
+* the method annotated with @property acts as a getter,
+takes just self as parameter and returns the internal attribute self._attributename. 
+* the method annotated with @attributename.setter acts as a setter, takes self and value as parameters and changes 
+the internal attribute self._attributename. 
+* the method annotated with @attributename.deleter acts as a deleter, takes just self as parameter and deletes 
+the internal attribute self._attributename.
+
+Every time you try to access an attribute,
+Python Virtual Machine does not modify immediately the attribute but calls annotated methods. 
+
+## Inheritance 
+
+The principles are the same as Java's.
+
+In the definition of the derived class after the name, 
+you have to put parentheses which will contain the name of the base class.
+
+## Multilevel Inheritance 
+
+Like Java, Python allows multilevel inheritance.
+
+## Multiple Inheritance
+
+Like C++ and unlike Java,
+Python allows multiple inheritance (in Java you have to use interfaces to achieve the same goal).
+
+## Method Resolution Order
+
+Like Java, every class in Python derives from object.
+
+## Polymorphism
+
+In Java, it comes from methods'
+overloading (methods with the same name and different parameters,
+discarded in Python in favour of default values for functions' parameters) and methods'
+overriding (redefine the method within a derived class)
+
+## Informal Interfaces
+
+Unlike Java, interfaces and abstract classes are not natively supported in Python.
+
+It can be achieved through an accurate study of Python module [collections.abc](https://docs.python.org/3.9/library/collections.abc.html?highlight=collections.abc#module-collections.abc).
+
+Informal interfaces declare methods without defining them (through the pass keyword). 
+
+Python does not check whether the inherited methods are implemented or not. 
+
+## Sorting user-defined objects
+
+## The operator module
+
+operator.attrgetter() (recommended) is faster than a lambda function and allows multilevel sorting.
+
+You need to pass to the attrgetter() the strings representing the attributes you want to use for sorting the collection
+(if an attribute is not found, an exception is raised).
+
+## Modules and classes 
+
+While in Java each file could have just one public class which must have the same name of the file,
+in a Python module you can store whatever you want without constraints.
+
+Classes' naming convention is the same as Java, while modules' naming convention is more similar to C.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
